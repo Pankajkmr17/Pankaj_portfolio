@@ -13,6 +13,8 @@
   --fill2: #945DD6;
 }
 
+
+
 /* Reset box-sizing */
 *, *:before, *:after {
   box-sizing: border-box;
@@ -277,18 +279,19 @@ h2 {
   font-size: 1.07rem;
 }
 
+
 #tooltip {
-  display: none;
   position: absolute;
-  background: #4428aa;
-  color: #fff;
-  padding: 7px 12px;
-  border-radius: 8px;
+  background: #333;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  display: none;
   pointer-events: none;
-  font-size: 0.96rem;
-  box-shadow: 0 2px 12px rgba(98,0,180,0.13);
-  z-index: 1000;
+  z-index: 999;
 }
+
 
 @media (max-width: 780px) {
   .stack {
@@ -431,4 +434,100 @@ h2 {
   .project-card-header h3 {font-size: 1.09rem;}
   .project-icon {width: 34px; height: 34px; font-size: 1.05rem;}
   .projects-section {padding: 18px 6px 16px 6px;}
+}
+
+
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    /* We DON'T hide the default cursor here anymore */
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.content {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    height: 200vh; /* Make page scrollable */
+}
+
+.clickable {
+    padding: 1rem;
+    background: #4CAF50;
+    color: white;
+    margin: 1rem 0;
+    cursor: pointer;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.scroll-area {
+    margin-top: 2rem;
+    height: 1000px;
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
+}
+
+/* Custom cursor styles */
+/* Custom Cursor Styles */
+.custom-cursor, .cursor-dot {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    will-change: transform;
+}
+
+
+.custom-cursor {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    background-color: transparent; /* No fill color */
+   transition: 
+        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+        width 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.4s ease;
+    box-sizing: border-box;
+    
+}
+
+
+.cursor-dot {
+    width: 5px;
+    height: 5px;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 50%;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Interactive States */
+body:active .custom-cursor {
+    width: 24px;
+    height: 24px;
+    border-color: rgba(0, 0, 0, 1);
+}
+
+body:active .cursor-dot {
+    transform: scale(1.8);
+}
+
+/* Hide on touch devices */
+@media (pointer: coarse) {
+    .custom-cursor, .cursor-dot {
+        display: none;
+    }
 }
