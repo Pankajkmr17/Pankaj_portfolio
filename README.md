@@ -8,7 +8,7 @@
 
 ## ✨ Live Preview
 
-🔗https://github.com/Pankajkmr17/Pankaj_portfolio/edit/main
+🔗https://github.com/Pankajkmr17/Pankaj_portfolio
 
 
 ---
